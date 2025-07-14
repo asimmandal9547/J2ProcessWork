@@ -1,0 +1,605 @@
+/* --------------------------------------------------
+   J² ProcessWorks – Global Stylesheet
+-------------------------------------------------- */
+:root {
+  /* Theme Colors */
+  --primary: #0077ff;
+  --secondary: #ff6b00;
+  --dark: #0d112b;
+  --light: #f4f7ff;
+  --gray: #999faa;
+  --gradient: linear-gradient(90deg,rgba(163, 106, 204, 1) 0%, rgba(69, 184, 255, 1) 100%);
+  --gradient2: linear-gradient(90deg,rgb(170, 199, 255) 17%, rgb(216, 117, 255) 100%);
+  /* Typography */
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+}
+
+/* ========== Resets & Utilities ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--body-font);
+  color: var(--dark);
+  background-color: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img {
+  width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.center {
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+}
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn.secondary {
+  background: var(--secondary);
+  color: #fff;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+.section {
+  padding: 5rem 0;
+  position: relative;
+  background: radial-gradient(circle,rgba(163, 95, 212, 0.79) 0%, rgba(122, 125, 130, 1) 100%);
+}
+.dark {
+  background: var(--dark);
+  color: #fff;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+.navbar.dark {
+  background: linear-gradient(90deg,rgba(255, 189, 189, 1) 0%, rgba(77, 82, 214, 1) 100%);
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.logo {
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.logo span {
+  color: var(--dark);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links li a {
+  font-weight: 600;
+}
+.nav-links li a.active {
+  color: var(--primary);
+}
+/* Hamburger */
+.nav-toggle {
+  display: none;
+}
+.hamburger {
+  display: none;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+}
+.hamburger span,
+.hamburger span:before,
+.hamburger span:after {
+  background: var(--dark);
+  content: '';
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+.hamburger span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburger span:before {
+  top: -10px;
+}
+.hamburger span:after {
+  bottom: -10px;
+}
+/* Toggle effect */
+.nav-toggle:checked + .hamburger span {
+  background: transparent;
+}
+.nav-toggle:checked + .hamburger span:before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle:checked + .hamburger span:after {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--light);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-toggle:checked ~ .nav-links {
+    transform: translateX(0);
+  }
+}
+
+/* ========== Hero ========== */
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.hero-content {
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+.hero-content h2 {
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  line-height: 1.2;
+}
+.hero-content span {
+  color: var(--secondary);
+}
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ========== About Section ========== */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+.wave-divider {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 100px;
+  background: var(--light);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+.about-img img {
+  border-radius: 20px;
+}
+
+/* ========== Values Section ========== */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.value-card {
+  background: var(--dark);
+  border: 2px solid var(--secondary);
+  padding: 2rem 1rem;
+  border-radius: 20px;
+  text-align: center;
+  clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-10px);
+  background: var(--secondary);
+}
+.value-card i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== Services Section ========== */
+
+.services{
+  background: linear-gradient(90deg,rgb(0, 0, 0) 17%, rgba(177, 119, 218, 0.869) 100%);
+  color: #ffffff;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  perspective: 1000px;
+  margin-top: 2.5rem;
+}
+.service-card {
+  height: 240px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Gradient border and glow effect */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+
+  /* Animated multicolour border background */
+  background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc, #ffcc00);
+  background-size: 400% 400%;
+  animation: borderAnimation 6s ease infinite;
+
+  /* Masking — vendor‑prefixed + standard */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);   /* Safari / old‑Chrome */
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);   /* Firefox & modern engines */
+
+  /* Compositing rules — already cross‑browser */
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  z-index: -1;
+  box-shadow: 0 0 12px rgba(255, 0, 200, 0.6),
+              0 0 18px rgba(0, 255, 204, 0.4),
+              0 0 24px rgba(255, 204, 0, 0.3);
+  transition: opacity 0.6s ease;
+}
+
+
+/* Hide glow when card flips */
+.service-card:hover::before {
+  opacity: 0;
+}
+
+/* Card flipping inner logic */
+.service-card .card-inner {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.service-card .card-front,
+.service-card .card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 1rem;
+  background: #0000009f;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.service-card .card-back {
+  background: var(--gradient2);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+.service-card i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+.service-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Border gradient animation */
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ========== Why Choose Us ========== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.stat {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.reasons {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: center;
+}
+.reasons li {
+  font-weight: 600;
+}
+.reasons i {
+  color: var(--secondary);
+  margin-right: 0.5rem;
+}
+
+/* ========== Industries Carousel ========== */
+.industries-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+  padding-top: 3rem;
+}
+.industry-tile {
+  flex: 0 0 260px;
+  height: 180px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+.industry-tile::after {
+  content: attr(data-label);
+}
+.industry-tile span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0 0 16px 16px;
+}
+.industry-tile:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* ========== Testimonials ========== */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.testimonial-card {
+  background: #fff;
+  color: var(--dark);
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '“';
+  font-family: var(--heading-font);
+  font-size: 4rem;
+  color: var(--secondary);
+  position: absolute;
+  top: -20px;
+  left: 20px;
+}
+.testimonial-card h4 {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ========== CTA ========== */
+.cta {
+  background: var(--gradient);
+  color: #fff;
+  text-align: center;
+}
+.cta h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: var(--dark);
+  color: #ccc;
+  padding-top: 4rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer-info h4 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer-form input,
+.footer-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 6px;
+}
+.footer-form button {
+  width: 100%;
+}
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.footer-social a:hover {
+  color: var(--secondary);
+}
+.footer-bottom {
+  text-align: center;
+  padding: 1rem;
+  background: #000;
+  color: #aaa;
+}
+
+/* ========== Careers Page ========== */
+.careers-hero {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.careers.section {
+  padding: 5rem 1rem;
+  background: linear-gradient(90deg,rgb(229, 224, 224) 0%, rgb(202, 145, 145) 100%);
+}
+
+.accordion {
+  margin-top: 3rem;
+}
+.accordion-item {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 2px solid var(--primary);
+}
+.accordion-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+}
+.accordion-content {
+  background: #fff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 1.5rem;
+}
+.accordion-content.open {
+  max-height: 300px;
+
+}
+.apply-form {
+  margin-top: 2rem;
+}
+.apply-form .form-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.apply-form input,
+.apply-form textarea {
+  flex: 1 1 200px;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* ========== Media Queries ========== */
+@media (max-width: 480px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  .nav-links {
+    width: 100%;
+  }
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | J² ProcessWorks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-oSf9xU1PPFKS6Oe5wYAaFmp9npuXVyVgQVsZCf5tRm+5i3G5mv5f4mSJd+W9cJ7YKuDKJRizVFP7SPn1CL1Yxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar dark" id="navbar">
+    <div class="container nav-container">
+      <h1 class="logo"><a href="index.html">J²<span>ProcessWorks</span></a></h1>
+      <nav>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="hamburger"><span></span></label>
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#industries">Industries</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Careers Hero ===== -->
+  <section class="careers-hero parallax" style="background-image:url('assets/career.jpg');">
+    <div class="overlay"></div>
+    <div class="container hero-content reveal center">
+      <h2>Build More Than a Career — Build a Future</h2>
+    </div>
+  </section>
+
+  <!-- ===== Open Roles ===== -->
+  <section class="careers section" id="open-roles">
+    <div class="container">
+      <h3 class="center reveal">Open Roles</h3>
+
+      <div class="accordion reveal">
+        <!-- Role Item -->
+        <article class="accordion-item">
+          <header class="accordion-header">
+            <h4>Customer Support Executive</h4>
+            <i class="fa-solid fa-chevron-down"></i>
+          </header>
+          <div class="accordion-content">
+            <p>Join our front‑line team delivering exceptional experiences for global customers across voice, chat & email.</p>
+            <ul>
+              <li>Location: Remote (Full Time)</li>
+              <li>Experience: 0–2 years</li>
+              <li>Shift: Rotational</li>
+            </ul>
+            <button class="btn primary apply-btn">Apply Now</button>
+          </div>
+        </article>
+
+        <article class="accordion-item">
+          <header class="accordion-header">
+            <h4>Software Developer Intern</h4>
+            <i class="fa-solid fa-chevron-down"></i>
+          </header>
+          <div class="accordion-content">
+            <p>We are looking for skilled and innovative Software Developers to join our technology team. The Software Developer will be responsible for designing, developing, and maintaining software applications. The ideal candidate should have strong programming skills, problem-solving abilities, and a passion for creating high-quality software solutions.</p>
+            <ul>
+              <li>Location: Remote (Full Time)</li>
+              <li>Experience: 0 years</li>
+              <li>Shift: Rotational</li>
+            </ul>
+            <button class="btn primary apply-btn">Apply Now</button>
+          </div>
+        </article>
+        <!-- Additional roles can be duplicated here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Apply Form ===== -->
+  <section class="apply section dark" id="apply">
+    <div class="container reveal">
+      <h3 class="center">Ready to Apply?</h3>
+      <form id="applyForm" class="apply-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="file" name="resume" accept="application/pdf" />
+        </div>
+        <textarea name="message" rows="5" placeholder="Tell us why you're a great fit" required></textarea>
+        <button type="submit" class="btn secondary">Submit Application</button>
+      </form>
+      <!-- TODO: Connect this form to Flask + MySQL backend -->
+    </div>
+  </section>
+
+  <!-- ===== Why Work With Us ===== -->
+  <section class="why-work section">
+    <div class="container reveal">
+      <h3 class="center">Why Work With Us</h3>
+      <ul class="emoji-list">
+        <li>🚀 Career acceleration & upskilling programs</li>
+        <li>🤝 Inclusive culture celebrating diversity</li>
+        <li>🎯 Performance‑linked rewards</li>
+        <li>🌿 Comprehensive wellness benefits</li>
+        <li>🌍 Global exposure & opportunities</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <h4>J² ProcessWorks</h4>
+        <p>Plot 42, Tech Park Road, Bengaluru 560100 India</p>
+        <p><i class="fa-solid fa-phone"></i> +91 80 1234 5678</p>
+        <p><i class="fa-solid fa-envelope"></i> careers@j2processworks.com</p>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> J² ProcessWorks. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
