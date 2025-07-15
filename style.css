@@ -9,7 +9,7 @@
   --light: #f4f7ff;
   --gray: #999faa;
   --gradient: linear-gradient(90deg,rgba(163, 106, 204, 1) 0%, rgba(69, 184, 255, 1) 100%);
-  --gradient2: linear-gradient(90deg,rgb(170, 199, 255) 17%, rgb(216, 117, 255) 100%);
+  --gradient2: linear-gradient(90deg,rgba(97, 140, 192, 0.891) 17%, rgb(216, 117, 255) 100%);
   /* Typography */
   --heading-font: 'Poppins', sans-serif;
   --body-font: 'Open Sans', sans-serif;
