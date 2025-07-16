@@ -1,6 +1,6 @@
 /* =================================================
    J² ProcessWorks – Main Scripts
-   Author: ChatGPT (generated)
+   Author: Asim Mandal
    Description: Smooth scrolling, intersection reveal,
                 nav active state, count‑up numbers,
                 accordion & basic form handling.
