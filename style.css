@@ -406,40 +406,97 @@ a {
   margin-right: 0.5rem;
 }
 
+
 /* ========== Industries Carousel ========== */
 .industries-carousel {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 1rem;
-  padding-top: 3rem;
+  padding: 3rem 1rem;
+  scrollbar-width: none; /* Firefox */
 }
+.industries-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Wrapper for each tile and text */
+.industry-tile-wrapper {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: center;
+  text-align: center;
+}
+
+/* Fancy shaped tile with clip-path */
 .industry-tile {
-  flex: 0 0 260px;
-  height: 180px;
-  border-radius: 16px;
+  width: 100%;
+  height: 200px;
   background-size: cover;
   background-position: center;
   position: relative;
-  scroll-snap-align: center;
-  transition: transform 0.3s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-.industry-tile::after {
-  content: attr(data-label);
+
+/* Unique clip-path on hover */
+.industry-tile:hover {
+  transform: scale(1.05) translateY(-4px);
+  clip-path: polygon(0 5%, 100% 0%, 100% 90%, 50% 100%, 0 90%);
 }
+
+/* Label inside the tile */
 .industry-tile span {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
+  padding: 0.6rem 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0 0 12px 12px;
+  backdrop-filter: blur(4px);
   text-align: center;
-  padding: 0.5rem;
-  border-radius: 0 0 16px 16px;
+  height: 45px;
 }
-.industry-tile:hover {
-  transform: translateY(-6px) scale(1.03);
+
+
+/* Text under each tile */
+.industry-description {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  color: #333;
+  background: linear-gradient(145deg, #ffffff, #f4f4f4);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+/* Optional final summary */
+.industry-summary {
+  margin-top: 3rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
 
 /* ========== Testimonials ========== */
