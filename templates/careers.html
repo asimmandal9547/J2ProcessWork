@@ -7,27 +7,30 @@
   <title>Careers | J² ProcessWorks</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <header class="navbar dark" id="navbar">
     <div class="container nav-container">
-      <h1 class="logo"><a href="index.html">J²<span>ProcessWorks</span></a></h1>
+      <h1 class="logo">
+        <a href="{{ url_for('home') }}">J²<span>ProcessWorks</span></a>
+      </h1>
       <nav>
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
         <label for="nav-toggle" class="hamburger"><span></span></label>
         <ul class="nav-links">
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#industries">Industries</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="{{ url_for('home') }}#about">About</a></li>
+          <li><a href="{{ url_for('home') }}#services">Services</a></li>
+          <li><a href="{{ url_for('home') }}#industries">Industries</a></li>
+          <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+
   <!-- ===== Careers Hero ===== -->
-  <section class="careers-hero parallax" style="background-image:url('assets/career.jpg');">
+  <section class="careers-hero parallax" style="background-image:url('static/assets/career.jpg');">
     <div class="overlay"></div>
     <div class="container hero-content reveal center">
       <h2>Build More Than a Career — Build a Future</h2>
@@ -53,7 +56,9 @@
               <li>Experience: 0–2 years</li>
               <li>Shift: Rotational</li>
             </ul>
-            <button class="btn primary apply-btn">Apply Now</button>
+            <button class="btn primary apply-btn" onclick="document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })">
+              Apply Now
+            </button>
           </div>
         </article>
         <!--------------------------------------------------->
@@ -69,7 +74,9 @@
               <li>Experience: 0 years</li>
               <li>Shift: Rotational</li>
             </ul>
-            <button class="btn primary apply-btn">Apply Now</button>
+            <button class="btn primary apply-btn" onclick="document.getElementById('apply').scrollIntoView({ behavior: 'smooth' })">
+              Apply Now
+            </button>
           </div>
         </article>
         <!-- Additional roles can be duplicated here -->
@@ -81,7 +88,7 @@
   <section class="apply section dark" id="apply">
     <div class="container reveal">
       <h3 class="center">Ready to Apply?</h3>
-      <form id="applyForm" class="apply-form">
+      <form id="applyForm" class="apply-form" action="{{ url_for('apply') }}" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <input type="text" name="name" placeholder="Full Name" required />
           <input type="email" name="email" placeholder="Email Address" required />
@@ -130,6 +137,6 @@
     <div class="footer-bottom">© <span id="year"></span> J² ProcessWorks. All rights reserved.</div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -23,26 +23,26 @@
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
         <label for="nav-toggle" class="hamburger"><span></span></label>
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#employees">Culture</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="careers.html" class="btn secondary">Careers</a></li>
+          <li><a href="{{ url_for('home') }}#home">Home</a></li>
+          <li><a href="{{ url_for('home') }}#about">About</a></li>
+          <li><a href="{{ url_for('home') }}#services">Services</a></li>
+          <li><a href="{{ url_for('home') }}#industries">Industries</a></li>
+          <li><a href="{{ url_for('home') }}#employees">Culture</a></li>
+          <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+          <li><a href="{{ url_for('careers') }}" class="btn secondary">Careers</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- ===== Hero Section ===== -->
-  <section id="home" class="hero parallax" style="background-image:url('assets/hero.jpg');">
+  <section id="home" class="hero parallax" style="background-image:url('static/assets/hero.jpg');">
     <div class="overlay"></div>
     <div class="container hero-content reveal">
       <h2>Your Process. <br />Our People. <br /><span>Unlimited Possibilities.</span></h2>
       <div class="hero-buttons">
         <a href="#services" class="btn primary">View Services</a>
-        <a href="careers.html" class="btn secondary">Join Us</a>
+        <a href="{{ url_for('careers') }}" class="btn secondary">Join Us</a>
       </div>
     </div>
   </section>
@@ -56,7 +56,7 @@
         <p>Driven by innovation, guided by values, and energized by people—discover the partner who treats your process like our own.</p>
       </div>
       <div class="about-img reveal">
-        <img src="assets/about.jpg" alt="Team collaborating at J² ProcessWorks" />
+        <img src="static/assets/about.jpg" alt="Team collaborating at J² ProcessWorks" />
       </div>
     </div>
     <div class="wave-divider"></div>
@@ -173,7 +173,7 @@
   </section>
 
   <!-- ===== Why Choose Us ===== -->
-  <section id="why" class="why section dark parallax" style="background-image:url('assets/why-bg.jpg');">
+  <section id="why" class="why section dark parallax" style="background-image:url('static/assets/why-bg.jpg');">
     <div class="overlay"></div>
     <div class="container reveal">
       <h3 class="center">Why Choose Us</h3>
@@ -211,7 +211,7 @@
     <div class="industries-carousel">
       <!-- BFSI -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/bfsi.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/bfsi.jpg');">
           <span>BFSI</span>
         </div>
         <p class="industry-description">
@@ -221,7 +221,7 @@
 
       <!-- E-commerce -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/ecommerce.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/ecommerce.jpg');">
           <span>E‑commerce</span>
         </div>
         <p class="industry-description">
@@ -231,7 +231,7 @@
 
       <!-- Healthcare -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/healthcare.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/healthcare.jpg');">
           <span>Healthcare</span>
         </div>
         <p class="industry-description">
@@ -241,7 +241,7 @@
 
       <!-- Telecom -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/telecom.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/telecom.jpg');">
           <span>Telecom & Media</span>
         </div>
         <p class="industry-description">
@@ -251,7 +251,7 @@
 
       <!-- Logistics / Travel & Hospitality -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/logistics.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/logistics.jpg');">
           <span>Travel & Hospitality</span>
         </div>
         <p class="industry-description">
@@ -261,7 +261,7 @@
 
       <!-- Retail -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/retail.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/retail.jpg');">
           <span>Retail</span>
         </div>
         <p class="industry-description">
@@ -271,7 +271,7 @@
 
       <!-- Technology -->
       <div class="industry-tile-wrapper reveal">
-        <div class="industry-tile" style="background-image:url('assets/tech.jpg');">
+        <div class="industry-tile" style="background-image:url('static/assets/tech.jpg');">
           <span>Technology</span>
         </div>
         <p class="industry-description">
@@ -326,7 +326,7 @@
         <p><i class="fa-solid fa-phone"></i> +91 80 1234 5678</p>
         <p><i class="fa-solid fa-envelope"></i> info@j2processworks.com</p>
       </div>
-      <form id="contactForm" class="footer-form">
+      <form id="contactForm" class="footer-form" action="{{ url_for('contact') }}" method="post">
         <h4>Send Us a Message</h4>
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
@@ -344,6 +344,6 @@
   </footer>
 
   <!-- ===== Script ===== -->
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
