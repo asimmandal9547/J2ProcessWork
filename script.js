@@ -111,6 +111,27 @@
   if (applyForm) handleForm(applyForm);
   if (contactForm) handleForm(contactForm);
 
+
+document.querySelectorAll('.emoji-list .expandable').forEach(function(item) {
+  item.addEventListener('click', function() {
+    const desc = item.querySelector('.desc');
+    if (desc.style.display === 'none' || desc.style.display === '') {
+      desc.style.display = 'inline';
+    } else {
+      desc.style.display = 'none';
+    }
+  });
+});
+
+
+// Smooth scroll to apply form when "Apply Now" is clicked
+document.querySelectorAll('.apply-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
   /* ---------- Footer Year ---------- */
   const yearSpan = $('#year');
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
