@@ -102,7 +102,7 @@
       const formData = new FormData(form);
       const dataObj = Object.fromEntries(formData.entries());
       console.log('Form Submitted:', dataObj);
-      alert('Thank you! Your submission was received.');
+      alert('Currently, we are receiving applications through our email only. Please send your resume to busines@j2processwork.com');
       form.reset();
     });
   };
@@ -110,6 +110,14 @@
   const contactForm = $('#contactForm');
   if (applyForm) handleForm(applyForm);
   if (contactForm) handleForm(contactForm);
+
+  const footerContactForm = document.querySelector('.footer-form form');
+  if (footerContactForm) {
+    footerContactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Please contact us via email (business@j2processwork.com) or phone (+91 62 0700 2241).');
+    });
+  }
 
 
 document.querySelectorAll('.emoji-list .expandable').forEach(function(item) {

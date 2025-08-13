@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favico.ico" />
 </head>
 <body>
 
@@ -326,15 +327,15 @@
         <p><i class="fa-solid fa-phone"></i> +91 62 0700 2241 </p>
         <p><i class="fa-solid fa-envelope"></i> business@j2processwork.com</p>
       </div>
-      <form id="contactForm" class="footer-form" action="https://web3forms.com/api/v2/forms/submit" method="POST">
+      <div class="footer-form">
         <h4>Send Us a Message</h4>
-        <!-- Replace with your Web3Forms Access Key -->
-        <input type="hidden" name="access_key" value="0db691ff-62e8-44aa-8888-969907243038" />
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn secondary">Submit</button>
-      </form>
+        <form>
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn secondary">Submit</button>
+        </form>
+      </div>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/j2processwork/"><i class="fa-brands fa-linkedin"></i></a>
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
